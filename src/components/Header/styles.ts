@@ -22,6 +22,12 @@ export const Container = styled.div<ContainerProps>`
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.2s;
+        padding-bottom: 10px;
+        border-bottom: 2px solid transparent;
+
+        &.active {
+          border-color: #ff872c;
+        }
 
         & + a {
           margin-left: 32px;

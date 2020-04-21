@@ -104,16 +104,24 @@ const Dashboard: React.FC = () => {
             </thead>
 
             <tbody>
-              {transactions.map(transaction => (
-                <tr key={transaction.id}>
-                  <td className="title">{transaction.title}</td>
-                  <td className={transaction.type}>
-                    {transaction.formattedValue}
+              {transactions.length ? (
+                transactions.map(transaction => (
+                  <tr key={transaction.id}>
+                    <td className="title">{transaction.title}</td>
+                    <td className={transaction.type}>
+                      {transaction.formattedValue}
+                    </td>
+                    <td>{transaction.category.title}</td>
+                    <td>{transaction.formattedDate}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={4} align="center">
+                    Nenhuma transação cadastrada
                   </td>
-                  <td>{transaction.category.title}</td>
-                  <td>{transaction.formattedDate}</td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </TableContainer>

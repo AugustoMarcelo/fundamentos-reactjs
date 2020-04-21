@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { Container } from './styles';
 
@@ -10,16 +10,22 @@ interface HeaderProps {
   size?: 'small' | 'large';
 }
 
-const Header: React.FC<HeaderProps> = ({ size = 'large' }: HeaderProps) => (
-  <Container size={size}>
-    <header>
-      <img src={Logo} alt="GoFinances" />
-      <nav>
-        <Link to="/">Listagem</Link>
-        <Link to="/import">Importar</Link>
-      </nav>
-    </header>
-  </Container>
-);
+const Header: React.FC<HeaderProps> = ({ size = 'large' }: HeaderProps) => {
+  return (
+    <Container size={size}>
+      <header>
+        <img src={Logo} alt="GoFinances" />
+        <nav>
+          <NavLink activeClassName="active" exact to="/">
+            Listagem
+          </NavLink>
+          <NavLink activeClassName="active" to="/import">
+            Importar
+          </NavLink>
+        </nav>
+      </header>
+    </Container>
+  );
+};
 
 export default Header;
