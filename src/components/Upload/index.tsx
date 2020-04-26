@@ -28,7 +28,7 @@ const Upload: React.FC<UploadProps> = ({ onUpload }: UploadProps) => {
   return (
     <>
       <Dropzone
-        accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+        accept="text/csv, application/vnd.ms-excel"
         onDropAccepted={files => onUpload(files)}
       >
         {({ getRootProps, getInputProps, isDragActive, isDragReject }): any => (
