@@ -64,6 +64,12 @@ export const TableContainer = styled.section`
     width: 100%;
     border-spacing: 0 8px;
 
+    @media screen and (max-width: 615px) {
+      thead {
+        display: none;
+      }
+    }
+
     th {
       color: #969cb3;
       font-weight: normal;
@@ -71,6 +77,61 @@ export const TableContainer = styled.section`
       text-align: left;
       font-size: 16px;
       line-height: 24px;
+    }
+
+    tbody {
+      @media screen and (max-width: 615px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+
+        tr {
+          display: flex;
+          flex-direction: column;
+
+          td {
+            position: relative;
+            padding: 20px 15px;
+
+            &:first-of-type {
+              border-radius: 8px 8px 0 0;
+              padding-top: 30px;
+            }
+
+            &:last-of-type {
+              border-radius: 0 0 8px 8px;
+            }
+
+            &::before {
+              position: absolute;
+              color: #5636d3;
+              top: 4px;
+              font-size: 12px;
+            }
+
+            &:nth-of-type(1):before {
+              content: 'Título';
+              font-weight: bold;
+              top: 15px;
+            }
+
+            &:nth-of-type(2):before {
+              content: 'Preço';
+              font-weight: bold;
+            }
+
+            &:nth-of-type(3):before {
+              content: 'Categoria';
+              font-weight: bold;
+            }
+
+            &:nth-of-type(4):before {
+              content: 'Data';
+              font-weight: bold;
+            }
+          }
+        }
+      }
     }
 
     tbody tr {
